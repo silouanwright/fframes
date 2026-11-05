@@ -1974,6 +1974,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "layout-example"
+version = "1.4.1"
+dependencies = [
+ "fframes",
+ "fframes_skia_renderer",
+ "taffy",
+]
+
+[[package]]
 name = "lazy_static"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4026,6 +4035,16 @@ dependencies = [
  "pkg-config",
  "toml 0.8.20",
  "version-compare",
+]
+
+[[package]]
+name = "taffy"
+version = "0.15.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "31f7bd2d97198df05186f93a3a3c306845f40e8b3c22bf9279cdd7e5cf5fea7d"
+dependencies = [
+ "serde",
+ "slotmap",
 ]
 
 [[package]]

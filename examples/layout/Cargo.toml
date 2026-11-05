@@ -1,0 +1,22 @@
+[package]
+name = "layout-example"
+version = "1.4.1"
+edition = "2024"
+publish = false
+
+[dependencies]
+fframes = { workspace = true, features = ["compile-time-svgtree", "cli"] }
+taffy = { version = "0.15.1", default-features = false, features = ["std", "taffy_tree", "flexbox"] }
+
+# `--renderer cpu|skia-cpu|gpu`: Skia on Metal on macOS, on Vulkan everywhere else
+[target.'cfg(target_os = "macos")'.dependencies]
+fframes_skia_renderer = { workspace = true, features = ["metal", "cli"] }
+
+[target.'cfg(not(target_os = "macos"))'.dependencies]
+fframes_skia_renderer = { workspace = true, features = ["vulkan", "cli"] }
+
+[target.'cfg(not(windows))'.dependencies]
+fframes = { workspace = true, features = ["h264", "libav-agree-gpl", "build-portable"] }
+
+[lints]
+workspace = true
